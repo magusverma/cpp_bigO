@@ -1,17 +1,18 @@
 echo "Compiling All programs"
 
-filename=$(basename "$fullfile")
-extension="${filename##*.}"
-filename="${filename%.*}"
-g++ src/1.cpp -o 1
-g++ n.cpp -o n
-g++ n_log_n.cpp -o n_log_n
-g++ n_square.cpp -o n_square
+for f in `ls ./src`;
+do
+	file="${f%.*}";
+	g++ ./src/$f -o bin/$file;
+	echo "Compiled src/$f as bin/$f"
+done;
 
-echo 1 > all_in
-echo $1 >> all_in
+echo 1 > ./input/all_in
+echo $1 >> ./input/all_in
+echo
 echo "Testing with T=1 and n=$1"
-timeout 5s /usr/bin/time -f "Time for O(1)       : %U" ./1
-timeout 5s /usr/bin/time -f "Time for O(n)       : %U" ./n
-timeout 5s /usr/bin/time -f "Time for O(nlog(n)) : %U" ./n_log_n
-timeout 5s /usr/bin/time -f "Time for O(n^2)     : %U" ./n_square
+for f in `ls ./bin`;
+do
+	timeout 5s /usr/bin/time -f "Time for O($f) : %U" ./bin/$f < ./input/all_in > ./output/$f
+done;
+	echo "Output Logged in 'output' folder"
