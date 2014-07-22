@@ -25,3 +25,7 @@ Testing Runtime of C++ Programmes of various complexities in Linux Environment
 ### Understanding Output
 - Shows Runtime in MM:SS 
 - Uses a Timeout of 5 seconds for each code
+
+### Contributing 
+fork me and send a PR , I am waiting for you! 
+new to git/github? no problem , https://help.github.com/articles/fork-a-repo
