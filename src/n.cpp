@@ -89,14 +89,16 @@ ll fact(ll n)
 
 int main()
 {
-	freopen("/home/magus/time_testing/all_in","r",stdin);
-	freopen("/home/magus/time_testing/1_out","w",stdout);
+	freopen("all_in","r",stdin);
+	freopen("n_out","w",stdout);
 
 	ll t,n,ans=0,ans2=0;
 	cin>>t;
 	while(t--){
-		cin>>n;
-		ans+=1;
+			cin>>n;
+			for(ll i=0;i<n;i++){
+					ans+=1;
+			}
 		cout<<ans-ans2<<endl;
 		ans2 = ans;
 	}
